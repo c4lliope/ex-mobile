@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         arch: ["arm", "arm64", "x86_64"]
+      fail-fast: false
     steps:
     - run: |
         wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
@@ -42,6 +43,8 @@ jobs:
   ios:
     name: "Build iOS runtime"
     runs-on: "macos-latest"
+    strategy:
+      fail-fast: false
     steps:
     - run: brew install git elixir carthage coreutils
     - uses: actions/checkout@v2
