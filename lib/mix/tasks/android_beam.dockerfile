@@ -46,7 +46,7 @@ config = "--with-ssl=/usr/local/openssl/ --disable-dynamic-ssl-lib --without-jav
 config = "--disable-jit #{config}"
 %>
 RUN ./otp_build configure <%= config %>
-RUN ./otp_build boot -a
+RUN ./otp_build boot -s
 
 # Build run #2, now creating the arm binaries, appliying the install flags only here...
 ENV INSTALL_PROGRAM "/usr/bin/install -c -s --strip-program=llvm-strip"
